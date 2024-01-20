@@ -5,7 +5,10 @@ import {data} from '../constants/data'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
+// import GoogleButton from ''
+import {signIn} from 'next-auth/react'
 import { useParams } from 'next/navigation'
+import AppBar from '@/components/AppBar'
 export default function Home() {
   // const [data, setData] = useState()
   const {id}=useParams()
@@ -16,7 +19,9 @@ export default function Home() {
     <main className="w-full h-screen pt-8 bg-slate-100">
       <h1 className="text-center text-5xl ">All products</h1>
       <div className="max-w-7xl mx-auto grid grid-cols-3 mt-8 gap-8">
-
+        {/* <GoogleButton/> */}
+        {/* <button onClick={()=> signIn('google')} className="text-3xl bg-red-300">Sign In</button> */}
+        <AppBar/>
       {data && data?.map((item) => {
         return (
           <Link href={`/detail/${item.id}`} key={item.id} className='w-[320px] p-4 hover:scale-105 duration-300 bg-white  rounded-xl'>
